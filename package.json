@@ -2,7 +2,8 @@
   "dependencies": {
     "date-fns": "^2.30.0",
     "discord.js": "^14.7.1",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "dotenv-vault": "^1.25.0"
   },
   "name": "discord-role-bubbler",
   "version": "1.0.0",
