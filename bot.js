@@ -8,20 +8,20 @@ const ROLES_LIST = process.env.ROLES_TO_BUBBLE.split(',');
 const TARGET_POSITION = Number(process.env.BUBBLE_POSITION);
 
 client.once('ready', () => {
-	console.log(`Logged in as ${client.user.tag}!`);
+  console.log(`Logged in as ${client.user.tag}!`);
 });
 
 client.on('messageCreate', message => {
-	message.guild.members.fetch(message.author)
-		.then(member => {
-			const roleToBubble = member.roles.cache.find(role => {
-				return ROLES_LIST.indexOf(role.id) !== -1;
-			});
-			if (roleToBubble) {
-				if (!roleToBubble.hoist) roleToBubble.setHoist(true);
-				roleToBubble.setPosition(TARGET_POSITION);
-			};
-		});
+  message.guild.members.fetch(message.author)
+  .then(member => {
+    const roleToBubble = member.roles.cache.find(role => {
+      return ROLES_LIST.indexOf(role.id) !== -1;
+    });
+    if (roleToBubble) {
+      if (!roleToBubble.hoist) roleToBubble.setHoist(true);
+      roleToBubble.setPosition(TARGET_POSITION);
+    };
+  });
 });
 
 client.login(process.env.DISCORD_TOKEN);
